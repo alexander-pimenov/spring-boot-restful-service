@@ -1,18 +1,21 @@
 package developer.remarks.service;
 
-import developer.remarks.exception.ProfileNotFoundException;
+import developer.remarks.dao.ProfileDao;
 import developer.remarks.model.Profile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProfileService {
 
+    private final ProfileDao profileDao;
+
+    @Autowired
+    public ProfileService(ProfileDao profileDao) {
+        this.profileDao = profileDao;
+    }
+
     public Profile getProfile(int personId) {
-        // имитируем обращение к БД
-        if (personId == 2) {
-            return new Profile(personId, "Иван", "Петров");
-        } else {
-            throw new ProfileNotFoundException(personId);
-        }
+        return profileDao.getProfileById(personId);
     }
 }
