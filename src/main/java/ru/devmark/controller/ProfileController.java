@@ -21,7 +21,7 @@ public class ProfileController {
     }
 
     @GetMapping(value = "/{personId:\\d+}")
-    public Profile getProfile(@PathVariable String personId) {
-        return profileService.getProfile(Integer.valueOf(personId));
+    public Profile getProfile(@PathVariable int personId) {
+        return profileService.getProfile(personId);
     }
 }
