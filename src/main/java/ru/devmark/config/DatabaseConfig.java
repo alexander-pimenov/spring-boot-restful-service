@@ -1,4 +1,4 @@
-package developer.remarks.config;
+package ru.devmark.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

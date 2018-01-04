@@ -1,6 +1,6 @@
-package developer.remarks.dao;
+package ru.devmark.dao;
 
-import developer.remarks.model.Profile;
+import ru.devmark.model.Profile;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

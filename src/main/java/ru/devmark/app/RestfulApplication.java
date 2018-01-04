@@ -1,9 +1,9 @@
-package developer.remarks.app;
+package ru.devmark.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "developer.remarks")
+@SpringBootApplication(scanBasePackages = "ru.devmark")
 public class RestfulApplication {
 
     public static void main(String[] args) {

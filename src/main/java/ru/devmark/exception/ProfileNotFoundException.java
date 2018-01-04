@@ -1,4 +1,4 @@
-package developer.remarks.exception;
+package ru.devmark.exception;
 
 public class ProfileNotFoundException extends RuntimeException {
 

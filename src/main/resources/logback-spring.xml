@@ -62,11 +62,11 @@
         <appender-ref ref="DEBUG_LEVEL_REMAPPER"/>
     </logger>
 
-    <logger name="developer.remarks.app" level="INFO">
+    <logger name="ru.devmark.app" level="INFO">
         <appender-ref ref="app" />
     </logger>
 
-    <logger name="developer.remarks.controller.ErrorController" level="INFO">
+    <logger name="ru.devmark.controller.ErrorController" level="INFO">
         <appender-ref ref="error-controller" />
     </logger>
 

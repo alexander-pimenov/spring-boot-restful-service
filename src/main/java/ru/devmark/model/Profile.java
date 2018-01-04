@@ -1,4 +1,4 @@
-package developer.remarks.model;
+package ru.devmark.model;
 
 public class Profile {
 

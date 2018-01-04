@@ -1,7 +1,7 @@
-package developer.remarks.dao;
+package ru.devmark.dao;
 
-import developer.remarks.exception.ProfileNotFoundException;
-import developer.remarks.model.Profile;
+import ru.devmark.exception.ProfileNotFoundException;
+import ru.devmark.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

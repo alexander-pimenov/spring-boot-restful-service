@@ -1,10 +1,13 @@
-package developer.remarks.controller;
+package ru.devmark.controller;
 
-import developer.remarks.model.Profile;
-import developer.remarks.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import ru.devmark.model.Profile;
+import ru.devmark.service.ProfileService;
 
 @RestController
 @RequestMapping(value = "/profile", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -17,8 +20,7 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @RequestMapping(value = "/{personId:\\d+}", method = RequestMethod.GET)
-    @ResponseBody
+    @GetMapping(value = "/{personId:\\d+}")
     public Profile getProfile(@PathVariable String personId) {
         return profileService.getProfile(Integer.valueOf(personId));
     }

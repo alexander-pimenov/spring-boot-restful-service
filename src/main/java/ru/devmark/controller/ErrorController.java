@@ -1,6 +1,6 @@
-package developer.remarks.controller;
+package ru.devmark.controller;
 
-import developer.remarks.model.ErrorInfo;
+import ru.devmark.model.ErrorInfo;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
