@@ -11,8 +11,12 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
 
+    private final ConnectionSettings connectionSettings;
+
     @Autowired
-    private ConnectionSettings connectionSettings;
+    public DatabaseConfig(ConnectionSettings connectionSettings) {
+        this.connectionSettings = connectionSettings;
+    }
 
     @Bean
     public DataSource dataSource() {

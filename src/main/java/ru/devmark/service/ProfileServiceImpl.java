@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ru.devmark.dao.ProfileDao;
+import ru.devmark.exception.ProfileNotFoundException;
 import ru.devmark.model.Profile;
 
 @Primary
@@ -19,6 +20,7 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public Profile getProfile(int personId) {
-        return profileDao.getProfileById(personId);
+        return profileDao.getProfileById(personId)
+                .orElseThrow(() -> new ProfileNotFoundException(personId));
     }
 }

@@ -1,13 +1,13 @@
 package ru.devmark.dao;
 
-import ru.devmark.exception.ProfileNotFoundException;
-import ru.devmark.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.devmark.model.Profile;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProfileDaoImpl implements ProfileDao {
@@ -28,17 +28,19 @@ public class ProfileDaoImpl implements ProfileDao {
     }
 
     @Override
-    public Profile getProfileById(int id) {
+    public Optional<Profile> getProfileById(int id) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        List<Profile> profiles = jdbcTemplate.query(
-                SQL_GET_PROFILE_BY_ID,
-                params,
-                profileMapper
-        );
-        if (profiles.isEmpty()) {
-            throw new ProfileNotFoundException(id);
+        try {
+            return Optional.ofNullable(
+                    jdbcTemplate.queryForObject(
+                            SQL_GET_PROFILE_BY_ID,
+                            params,
+                            profileMapper
+                    )
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
         }
-        return profiles.get(0);
     }
 }
