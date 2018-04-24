@@ -13,7 +13,7 @@ import java.util.Optional;
 public class ProfileDaoImpl implements ProfileDao {
 
     private static final String SQL_GET_PROFILE_BY_ID =
-            "select id, first_name, last_name from profiles where id = :id";
+            "select id, first_name, last_name, age from profiles where id = :id";
 
     private final ProfileMapper profileMapper;
     private final NamedParameterJdbcTemplate jdbcTemplate;

@@ -16,6 +16,7 @@ public class ProfileMapper implements RowMapper<Profile> {
         profile.setId(rs.getInt("id"));
         profile.setFirstName(rs.getString("first_name"));
         profile.setLastName(rs.getString("last_name"));
+        profile.setAge(rs.getInt("age"));
         return profile;
     }
 }
